@@ -1,4 +1,4 @@
-# Terraform Block
+# Terraform Blocl
 terraform {
   required_version = "~> 1.1.4"
   required_providers {
@@ -8,6 +8,7 @@ terraform {
     }
   }
 }
+
 # Provider Block
 provider "aws" {
   region  = "ap-south-1"
