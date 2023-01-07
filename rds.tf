@@ -1,5 +1,5 @@
 resource "aws_db_instance" "default" {
-  allocated_storage    = 10
+  allocated_storage    = 15
   db_name              = "mydb"
   engine               = "mysql"
   engine_version       = "5.7"
