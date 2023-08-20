@@ -1,3 +1,4 @@
+/*
 resource "aws_db_instance" "default" {
   allocated_storage    = 15
   db_name              = "mydb"
@@ -9,6 +10,7 @@ resource "aws_db_instance" "default" {
   parameter_group_name = "default.mysql5.7"
   skip_final_snapshot  = true
 }
+*/
 
 resource "aws_iam_user" "iam" {
   name = "test123"
