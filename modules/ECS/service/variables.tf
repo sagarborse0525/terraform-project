@@ -9,16 +9,19 @@ variable "create" {
 variable "ecs_service_name" {
   description = "The name of the service."
   type        = string
+  default     = "test"
 }
 
-variable "ecs_cluster_name" {
-  description = "(Optional) Name of the ECS cluster. Required only if autoscaling is enabled"
+variable "ecs_cluster_arn" {
+  description = "(Optional)ARN of an ECS cluster"
   type        = string
   default     = null
 }
 
 variable "task_definition_arn" {
   description = "(Required) The full ARN of the task definition that you want to run in your service."
+  type        = string
+  default     = null
 }
 
 variable "deployment_maximum_percent" {
@@ -125,7 +128,7 @@ variable "placement_constraints" {
   default     = []
 }
 
-variable "ecs_load_balancers" {
+variable "load_balancer" {
   description = "A list of load balancer config objects for the ECS service."
   type = list(object({
     container_name   = string
@@ -141,7 +144,9 @@ variable "deployment_controller" {
   type = list(object({
     type = string
   }))
-  default = ["ECS"]
+  default = [{
+    type = "ECS"
+  }]
 }
 
 variable "assign_public_ip" {
@@ -150,7 +155,7 @@ variable "assign_public_ip" {
   default     = false
 }
 
-variable "security_groups" {
+variable "security_group_ids" {
   description = "(Optional) The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used."
   type        = list(any)
   default     = []
@@ -159,9 +164,11 @@ variable "security_groups" {
 variable "public_subnets" {
   description = "The public subnets associated with the task or service."
   type        = list(any)
+  default     = []
 }
 
 variable "private_subnets" {
   description = "The private subnets associated with the task or service."
   type        = list(any)
+  default     = []
 }

@@ -20,7 +20,7 @@ resource "aws_ecs_service" "main" {
   propagate_tags                     = var.propagate_tags
 
   dynamic "capacity_provider_strategy" {
-    for_each = var.capacity_provider_strategiesy
+    for_each = var.capacity_provider_strategies
     content {
       base              = lookup(capacity_provider_strategy.value, "base", null) //Optional
       weight            = capacity_provider_strategy.value.weight                //Required
