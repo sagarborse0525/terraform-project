@@ -15,13 +15,13 @@ variable "ecs_service_name" {
 variable "ecs_cluster_arn" {
   description = "(Optional)ARN of an ECS cluster"
   type        = string
-  default     = null
+  default     = "arn:aws:ecs:us-east-1:108040610828:cluster/demo-cluster"
 }
 
 variable "task_definition_arn" {
   description = "(Required) The full ARN of the task definition that you want to run in your service."
   type        = string
-  default     = null
+  default     = "arn:aws:ecs:us-east-1:108040610828:task-definition/demo-DF:3"
 }
 
 variable "deployment_maximum_percent" {
@@ -152,23 +152,23 @@ variable "deployment_controller" {
 variable "assign_public_ip" {
   description = "(Optional) Assign a public IP address to the ENI (Fargate launch type only). If true service will be associated with public subnets. Default false. "
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "security_group_ids" {
   description = "(Optional) The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used."
   type        = list(any)
-  default     = []
+  default     = ["sg-0da0d4b35236bb809"]
 }
 
 variable "public_subnets" {
   description = "The public subnets associated with the task or service."
   type        = list(any)
-  default     = []
+  default     = ["subnet-0c462f8471784a2e7","subnet-0270808baf0da1aae"]
 }
 
 variable "private_subnets" {
   description = "The private subnets associated with the task or service."
   type        = list(any)
-  default     = []
+  default     = ["subnet-0514c2171caa68497","subnet-02fafae2ed88a1773"]
 }

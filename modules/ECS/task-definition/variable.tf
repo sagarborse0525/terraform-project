@@ -64,13 +64,13 @@ variable "container_definition" {
 variable "task_role_arn" {
   description = "(Optional) The ARN of IAM role that grants permissions to the actual application once the container is started (e.g access an S3 bucket or DynamoDB database). If not specified, `aws_iam_role.ecs_task_execution_role.arn` is used"
   type        = string
-  default     = null
+  default     = "arn:aws:iam::108040610828:role/ecsTaskExecutionRole"
 }
 
 variable "execution_role_arn" {
   description = "(Optional) The ARN of IAM role that grants permissions to start the containers defined in a task (e.g populate environment variables from AWS Secrets Manager). If not specified, `aws_iam_role.ecs_task_execution_role.arn` is used"
   type        = string
-  default     = null
+  default     = "arn:aws:iam::108040610828:role/ecsTaskExecutionRole"
 }
 
 variable "network_mode" {
